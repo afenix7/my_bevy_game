@@ -61,3 +61,8 @@ image = { version = "0.24", default-features = false }
 
 [build-dependencies]
 embed-resource = "1.4"
+
+# performance and fix LINK : fatal error LNK1189: library limit of 65535 objects exceeded
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
+rustflags = ["-Zshare-generics=off"]
